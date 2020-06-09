@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-tree = ET.parse('/home/samuel/Desktop/KenyaOrient/kenyaorientcontactscopy.xml')
+tree = ET.parse('/path_to_file/file_name.xml') # Path to downloaded file from 3CX
 root = tree.getroot()
 
 
@@ -18,4 +18,4 @@ for DirectoryEntry in root.findall('DirectoryEntry'):
 	#ET.SubElement(root[0], "Name").text = fname + lname
 
 #tree = ET.ElementTree(root)
-tree.write('modified.xml')
+tree.write('modified.xml') # Name of the modified xml contact list
