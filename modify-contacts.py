@@ -14,8 +14,5 @@ for DirectoryEntry in root.findall('DirectoryEntry'):
 
 	DirectoryEntry.remove(DirectoryEntry.find('FirstName'))
 	DirectoryEntry.remove(DirectoryEntry.find('LastName'))
-	#print(fname, lname)
-	#ET.SubElement(root[0], "Name").text = fname + lname
 
-#tree = ET.ElementTree(root)
 tree.write('modified.xml') # Name of the modified xml contact list
