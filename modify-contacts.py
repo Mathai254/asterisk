@@ -1,0 +1,21 @@
+import xml.etree.ElementTree as ET
+tree = ET.parse('/home/samuel/Desktop/KenyaOrient/kenyaorientcontactscopy.xml')
+root = tree.getroot()
+
+
+for DirectoryEntry in root.findall('DirectoryEntry'):
+	fname = DirectoryEntry.find('FirstName').text
+	lname = DirectoryEntry.find('LastName').text
+	#print(fname, lname)
+	Name = ET.Element("Name")
+	Name.text = str(lname) +" "+str(fname)
+	#print(Name.text)
+	DirectoryEntry.append(Name)
+
+	DirectoryEntry.remove(DirectoryEntry.find('FirstName'))
+	DirectoryEntry.remove(DirectoryEntry.find('LastName'))
+	#print(fname, lname)
+	#ET.SubElement(root[0], "Name").text = fname + lname
+
+#tree = ET.ElementTree(root)
+tree.write('modified.xml')
